@@ -1,18 +1,32 @@
-import { Text, StyleSheet, View } from 'react-native';
+import React from "react";
+import { Text, StyleSheet, View } from "react-native";
 
-function TaskItem({ task }) {
+const TaskItem = (props) => {
+  const { task } = props;
+
   return (
-    <View>
-      <Text style={styles.taskTitle}>{task}</Text>
+    <View style={styles.taskContainer}>
+      <Text style={styles.taskTitle}>{task.name}</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  taskContainer: {
+    marginRight: 16,
+    marginLeft: 16,
+    borderColor: '#888',
+    borderWidth: 1,
+    marginBottom: 16,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+  },
   taskTitle: {
-    fontSize: 22,
+    padding: 16,
+    paddingBottom: 18,
+    fontSize: 18,
     fontWeight: 500,
-    color: '#555555',
+    color: "#555555",
   },
 });
 

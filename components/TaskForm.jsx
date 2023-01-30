@@ -8,7 +8,7 @@ import {
   Keyboard,
 } from "react-native";
 import React, { useContext, useState } from "react";
-import TaskContext from "../contexts/TaskContext";
+import TaskContext from "../contexts/MyContext";
 
 const TaskForm = () => {
   const { handleAddTask } = useContext(TaskContext); // from context api
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 4,
     flex: 1,
+    backgroundColor: '#FFF',
   },
   button: {
     padding: 10,
