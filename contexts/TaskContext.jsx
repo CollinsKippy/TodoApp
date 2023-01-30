@@ -14,8 +14,8 @@ export function TaskProvider({ children }) {
   return (
     <TaskContext.Provider
       value={{
-        tasks,
-        handleAddTask,
+        tasks: tasks,
+        handleAddTask: handleAddTask,
       }}>
       {children}
     </TaskContext.Provider>

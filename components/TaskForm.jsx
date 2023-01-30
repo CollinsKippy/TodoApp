@@ -1,15 +1,27 @@
-import { KeyboardAvoidingView, TextInput, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import {
+  KeyboardAvoidingView,
+  TextInput,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Keyboard,
+} from "react-native";
+import React, { useContext, useState } from "react";
+import TaskContext from "../contexts/TaskContext";
 
 const TaskForm = () => {
   const { handleAddTask } = useContext(TaskContext); // from context api
 
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
 
   const onSubmit = () => {
+    Keyboard.dismiss();
+    console.log(task);
+
     handleAddTask(task);
 
-    setTask('');
+    setTask("");
   };
 
   return (
@@ -17,7 +29,8 @@ const TaskForm = () => {
       <TextInput
         style={styles.input}
         placeholder="Enter your task..."
-        onChangeText={t => setTask(t)}
+        value={task}
+        onChangeText={(t) => setTask(t)}
       />
 
       <TouchableOpacity style={styles.button} onPress={() => onSubmit()}>
@@ -31,15 +44,16 @@ const TaskForm = () => {
 
 export default TaskForm;
 
-
 const styles = StyleSheet.create({
   form: {
     margin: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
   },
   input: {
-    borderColor: '#333',
+    borderColor: "#333",
+    borderWidth: 2,
     padding: 10,
     margin: 4,
     flex: 1,
@@ -47,9 +61,9 @@ const styles = StyleSheet.create({
   button: {
     padding: 10,
     margin: 4,
-    backgroundColor: '#11428c',
+    backgroundColor: "#11428c",
   },
   buttonText: {
-    color: '#FFF',
+    color: "#FFF",
   },
 });

@@ -14,15 +14,21 @@ import {
   Text,
   View,
 } from 'react-native';
-import { TaskProvider } from './contexts/TaskContext';
+import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
+import {TaskProvider} from './contexts/TaskContext';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView>
-      <StatusBar hidden />
+    <SafeAreaView style={styles.container}>
+      <StatusBar />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <TaskProvider>
-          
+          <View>
+            <Text style={styles.heading}>Task App</Text>
+          </View>
+          <TaskList />
+          <TaskForm />
         </TaskProvider>
       </ScrollView>
     </SafeAreaView>
@@ -30,21 +36,16 @@ function App(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    padding: 16,
+    marginTop: 24,
   },
-  sectionTitle: {
+  heading: {
     fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+    fontWeight: '500',
+    margin: 16,
+    borderBottomColor: 'blue',
+    borderBottomWidth: 2,
   },
 });
 
