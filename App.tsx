@@ -14,15 +14,16 @@ import {
   Text,
   View,
 } from 'react-native';
+import { TaskProvider } from './contexts/TaskContext';
 
 function App(): JSX.Element {
   return (
     <SafeAreaView>
       <StatusBar hidden />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text style={styles.sectionContainer}>Hello</Text>
-        </View>
+        <TaskProvider>
+          
+        </TaskProvider>
       </ScrollView>
     </SafeAreaView>
   );
